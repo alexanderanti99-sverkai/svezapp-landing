@@ -1,0 +1,159 @@
+.car-reveal {
+  --reveal-x: 50%;
+  --reveal-y: 46%;
+  --reveal-size: 190px;
+  --xray-align-x: 0px;
+  --xray-align-y: 0px;
+  --xray-align-scale: 1;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: auto;
+  background: #0e1012;
+}
+
+.car-reveal::before {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  content: '';
+  background:
+    radial-gradient(circle at 50% 58%, rgba(221, 230, 234, 0.12), transparent 28%),
+    radial-gradient(circle at 58% 54%, rgba(200, 117, 47, 0.08), transparent 36%),
+    radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.55), transparent 54%);
+  mix-blend-mode: screen;
+  opacity: 0.64;
+}
+
+.car-reveal__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.car-reveal__image--normal {
+  z-index: 1;
+}
+
+.car-reveal__image--xray {
+  z-index: 3;
+  opacity: 0;
+  transform: translate3d(var(--xray-align-x), var(--xray-align-y), 0) scale(var(--xray-align-scale));
+  transform-origin: center center;
+  filter: saturate(0.9) brightness(1.08) drop-shadow(0 0 22px rgba(174, 190, 199, 0.16));
+  clip-path: polygon(
+    34.6% 29.2%,
+    40.6% 30.5%,
+    46.8% 31.1%,
+    50% 31.2%,
+    53.2% 31.1%,
+    59.4% 30.5%,
+    65.4% 29.2%,
+    67.4% 36%,
+    70.4% 45%,
+    71.9% 50.8%,
+    70.4% 55.5%,
+    66.8% 62%,
+    62.5% 67.2%,
+    56% 69.9%,
+    50% 70.7%,
+    44% 69.9%,
+    37.5% 67.2%,
+    33.2% 62%,
+    29.6% 55.5%,
+    28.1% 50.8%,
+    29.6% 45%,
+    32.6% 36%
+  );
+  transition: opacity 360ms ease;
+  -webkit-mask-image: radial-gradient(
+    circle var(--reveal-size) at var(--reveal-x) var(--reveal-y),
+    black 0%,
+    black 26%,
+    rgba(0, 0, 0, 0.74) 44%,
+    rgba(0, 0, 0, 0.35) 64%,
+    transparent 88%
+  );
+  mask-image: radial-gradient(
+    circle var(--reveal-size) at var(--reveal-x) var(--reveal-y),
+    black 0%,
+    black 26%,
+    rgba(0, 0, 0, 0.74) 44%,
+    rgba(0, 0, 0, 0.35) 64%,
+    transparent 88%
+  );
+}
+
+.car-reveal.is-hovered .car-reveal__image--xray {
+  opacity: 1;
+}
+
+.car-reveal__caption {
+  position: absolute;
+  right: clamp(18px, 5vw, 72px);
+  bottom: clamp(176px, 24vh, 230px);
+  z-index: 4;
+  display: grid;
+  gap: 4px;
+  width: 212px;
+  padding: 14px 16px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.car-reveal.is-hovered .car-reveal__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.car-reveal__caption span,
+.car-reveal__caption strong {
+  position: relative;
+  z-index: 1;
+}
+
+.car-reveal__caption span {
+  color: var(--color-accent-amber-soft);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.car-reveal__caption strong {
+  color: var(--color-xray-white);
+  font-size: 0.82rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .car-reveal {
+    top: auto;
+    height: 58vh;
+    min-height: 350px;
+  }
+
+  .car-reveal__image {
+    object-position: center bottom;
+  }
+
+  .car-reveal__image--xray,
+  .car-reveal__caption {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .car-reveal {
+    height: 48vh;
+    min-height: 310px;
+  }
+}

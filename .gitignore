@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.playwright-mcp/
+изображения/
+car-normal.png
+car-xray.png
+svezapp-hero-*.png
+verification-*.png
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts

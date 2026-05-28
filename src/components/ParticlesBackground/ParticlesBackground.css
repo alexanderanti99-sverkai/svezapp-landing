@@ -1,0 +1,52 @@
+.particles-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particles-background span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(221, 230, 234, 0.72);
+  box-shadow: 0 0 14px rgba(224, 161, 90, 0.18);
+  opacity: 0.14;
+  animation: studioDust 6.8s ease-in-out infinite;
+}
+
+.particles-background span:nth-child(1) { top: 14%; left: 8%; animation-delay: 0s; }
+.particles-background span:nth-child(2) { top: 34%; left: 16%; animation-delay: 1.2s; }
+.particles-background span:nth-child(3) { top: 24%; left: 31%; animation-delay: 2.2s; }
+.particles-background span:nth-child(4) { top: 58%; left: 12%; animation-delay: 3.4s; }
+.particles-background span:nth-child(5) { top: 76%; left: 28%; animation-delay: 1.8s; }
+.particles-background span:nth-child(6) { top: 18%; left: 47%; animation-delay: 4s; }
+.particles-background span:nth-child(7) { top: 44%; left: 54%; animation-delay: 0.8s; }
+.particles-background span:nth-child(8) { top: 72%; left: 49%; animation-delay: 2.9s; }
+.particles-background span:nth-child(9) { top: 12%; left: 68%; animation-delay: 1.5s; }
+.particles-background span:nth-child(10) { top: 38%; left: 78%; animation-delay: 3.7s; }
+.particles-background span:nth-child(11) { top: 64%; left: 86%; animation-delay: 2.4s; }
+.particles-background span:nth-child(12) { top: 83%; left: 72%; animation-delay: 4.8s; }
+.particles-background span:nth-child(13) { top: 29%; left: 91%; animation-delay: 5.2s; }
+.particles-background span:nth-child(14) { top: 88%; left: 94%; animation-delay: 0.4s; }
+.particles-background span:nth-child(15) { top: 52%; left: 36%; animation-delay: 5.7s; }
+.particles-background span:nth-child(16) { top: 68%; left: 61%; animation-delay: 3.1s; }
+.particles-background span:nth-child(17) { top: 9%; left: 22%; animation-delay: 6.1s; }
+.particles-background span:nth-child(18) { top: 46%; left: 5%; animation-delay: 4.3s; }
+.particles-background span:nth-child(19) { top: 31%; left: 64%; animation-delay: 2.7s; }
+.particles-background span:nth-child(20) { top: 79%; left: 41%; animation-delay: 1.1s; }
+.particles-background span:nth-child(21) { top: 18%; left: 82%; animation-delay: 3.9s; }
+.particles-background span:nth-child(22) { top: 91%; left: 18%; animation-delay: 5.5s; }
+
+@keyframes studioDust {
+  0%, 100% {
+    opacity: 0.11;
+    transform: translateY(0) scale(0.8);
+  }
+  46% {
+    opacity: 0.58;
+    transform: translateY(-9px) scale(1);
+  }
+}
