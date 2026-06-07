@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import carNormal from '../../assets/images/mercedes-normal.png';
-import carXray from '../../assets/images/mercedes-xray.jpg';
+import carNormal from '../../assets/images/porsche-normal.png';
+import carXray from '../../assets/images/porsche-xray.png';
 import './CarReveal.css';
 
 type Point = {
